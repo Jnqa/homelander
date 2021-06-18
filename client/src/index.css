@@ -1,0 +1,6 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+.logo {
+  height: 400px;
+  width: 400px;
+}
