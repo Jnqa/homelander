@@ -3,7 +3,6 @@ const express = require('express') //import express from 'express' //
 
 const mongoose = require('mongoose')
 const config = require('config')
-
 const app = express()
 
 app.use('/api/auth', require('./routes/auth.routes'))
