@@ -18,6 +18,10 @@ export const AuthPage = () => {
       clearError()
     }, [error, message, clearError])
 
+    useEffect(() => {
+      window.M.updateTextFields()
+    }, [])
+
     const changeHandler = event => {
         setForm({...form, [event.target.name]: event.target.value})
     }
@@ -51,12 +55,12 @@ export const AuthPage = () => {
             <div className="card-content white-text">
               <p>Вход производится через бота</p>
               <div className="input-field">
-                <input placeholder="Input email" id="email" type="text" 
+                <input id="email" type="text" 
                 name="email" className="blue-input" onChange={changeHandler}/>
                     <label htmlFor="email">Email:</label>
               </div>
               <div className="input-field">
-                <input placeholder="Input password" id="password" type="password" 
+                <input id="password" type="password" 
                 name="password" className="blue-input" onChange={changeHandler}/>
                     <label htmlFor="password">Password:</label>
               </div>
