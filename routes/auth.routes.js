@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const config = requre('config')
+const config = require('config')
 const {check,validationRsesult, validationResult} = require('express-validator')
 const User = require('../models/User')
 const router = Router()
@@ -13,7 +13,7 @@ router.post(
         check('email', 'Wrong email').isEmail(),
         check('password', 'Bad pass').isLength({min: 6})
     ],
-    async (reg, res) => {
+    async (req, res) => {
     try {
         const errors = validationResult(req)
 
@@ -40,7 +40,8 @@ router.post(
         res.status(201).json({message:'User created'})
 
     } catch (e) {
-        res.status(500).json({message:'Something wrong'})
+        res.status(500).json({message:`Something wrong`})
+        console.log("Something like ", e)
     }
 })
 
@@ -51,7 +52,7 @@ router.post(
         check('email', 'Wrong email').normalizeEmail().isEmail(),
         check('password', 'Bad pass').exists()
     ],
-    async (reg, res) => {
+    async (req, res) => {
     try {
         const errors = validationResult(req)
 
