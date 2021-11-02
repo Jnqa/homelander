@@ -1,9 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const AuthPage = () => {
+    const [form, setForm] = useState({
+        email: '', password: '' 
+    })
+
+    const changeHandler = event => {
+        setForm({ ...form,   [event.target.name]: event.target.value })
+    }
+
     return (
-        <div>
-            <h1>Auth</h1>
+        <div className='row'>
+            <div className='col s4 offset-s3'>
+                <h1>Homelander</h1>
+                <div className="card blue-grey darken-1">
+                <div className="card-content white-text">
+                    <span className="card-title">Авторизация</span>
+                    <p>Ты можешь!</p>
+                    <div>
+
+                        <div className="input-field">
+                            <input 
+                                placeholder=""
+                                id="email" 
+                                type="email"
+                                name="email"
+                                className='yellow-input'
+                                onChange={changeHandler}
+                            />
+                            <label htmlFor="email">Email</label>
+                        </div>
+
+                        <div className="input-field">
+                            <input 
+                                placeholder=""
+                                id="password" 
+                                type="password"
+                                name="password"
+                                className='yellow-input'
+                                onChange={changeHandler}
+                            />
+                            <label htmlFor="email">Пароль</label>
+                        </div>
+                    </div>
+                </div>
+                    <div className="card-action">
+                        <button className='btn light-blue darken-1' style = {{ marginRight: 10}}>Вход</button>
+                        <button className='btn green darken-1'>Регистрация</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <h1>Start</h1>
+        {routes}
       </div>
     </Router>
   )
